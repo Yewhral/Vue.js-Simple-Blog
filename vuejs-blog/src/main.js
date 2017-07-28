@@ -4,6 +4,16 @@ import VueResource from 'vue-resource'
 
 Vue.use(VueResource);
 
+// Filters
+
+Vue.filter("to-uppercase", function(value){
+    return value.toUpperCase();
+});
+
+Vue.filter("snippet", function(value){
+   return value.slice(0,100) + '...';
+});
+
 //Custom directives
 Vue.directive('rainbow', {
   bind(el, binding, vnode){
