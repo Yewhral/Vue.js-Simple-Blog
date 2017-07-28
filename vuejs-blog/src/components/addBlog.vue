@@ -6,12 +6,27 @@
         <input type="text" v-model="blog.title" required/>
         <label>Blog Content:</label>
         <textarea v-model="blog.content"></textarea>
+        <div id ="checkboxes">
+        <p> Periods/tags: </p>
+            <label>Nara</label>
+            <input type="checkbox" value="Nara" v-model="blog.categories"/>
+            <label>Heian </label>
+            <input type="checkbox" value="Heian" v-model="blog.categories"/>
+            <label>Kamakura </label>
+            <input type="checkbox" value="Kamakura" v-model="blog.categories"/>
+            <label>Nanboku-cho</label>
+             <input type="checkbox" value="Nanboku" v-model="blog.categories"/>
+        </div>
     </form>
     <div id="preview">
         <h3>Preview Blog</h3>
         <p>Blog title: {{blog.title}} </p>
         <p>Blog content: </p>
         <p>  {{blog.content}} </p>
+        <p> Blog Categories: </p>
+        <ul>
+            <li v-for="category in blog.categories"> {{category}} </li>
+        </ul>
     </div>
   </div>
 </template>
@@ -24,7 +39,8 @@ export default {
     return {
         blog:{
           title: "",
-          content: ""
+          content: "",
+          categories: []
         }
     }
   },
@@ -60,5 +76,13 @@ input[type="text"], textarea{
 }
 h3{
     margin-top: 10px;
+}
+
+#checkboxes input{
+    display: inline-block;
+    margin-right: 10px;
+}
+#checkboxes label{
+    display:inline-block;
 }
 </style>
