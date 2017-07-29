@@ -36,6 +36,11 @@ export default {
             return blog.title.match(this.search);
         });
       }
+    },
+    filters:{
+      toUppercase(value){
+        return value.toUpperCase();
+      }
     }
 }
 </script>
